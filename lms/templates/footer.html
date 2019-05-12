@@ -1,0 +1,257 @@
+## mako
+<%page expression_filter="h"/>
+<%!
+  from django.core.urlresolvers import reverse
+  from django.utils.translation import ugettext as _
+  from branding.api import get_footer
+%>
+<% footer = get_footer(is_secure=is_secure) %>
+<%namespace name='static' file='static_content.html'/>
+<%!
+  from datetime import date
+%>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+<style>
+  .footer-dva{
+  background-color: #292c2f;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: bold 16px sans-serif;
+
+  padding: 55px 50px;
+  margin-top: 80px;
+}
+
+.footer-dva .footer-left,
+.footer-dva .footer-center,
+.footer-dva .footer-right{
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-dva .footer-left{
+  width: 40%;
+}
+
+/* The company logo */
+
+.footer-dva h3{
+  color:  #ffffff;
+  font: normal 36px 'Cookie', cursive;
+  margin: 0;
+}
+
+.footer-dva h3 span{
+  color:  #5383d3;
+}
+
+/* Footer links */
+
+.footer-dva .footer-links{
+  color:  #ffffff;
+  margin: 20px 0 12px;
+  padding: 0;
+}
+
+.footer-dva .footer-links a{
+  display:inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color:  inherit;
+}
+
+.footer-dva .footer-destro-name{
+  color:  #8f9296;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* Footer Center */
+
+.footer-dva .footer-center{
+  width: 35%;
+}
+
+.footer-dva .footer-center i{
+  background-color:  #33383b;
+  color: #ffffff;
+  font-size: 25px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 42px;
+  margin: 10px 15px;
+  vertical-align: middle;
+}
+
+.footer-dva .footer-center i.fa-envelope{
+  font-size: 17px;
+  line-height: 38px;
+}
+
+.footer-dva .footer-center p{
+  display: inline-block;
+  color: #ffffff;
+  vertical-align: middle;
+  margin:0;
+}
+
+.footer-dva .footer-center p span{
+  display:block;
+  font-weight: normal;
+  font-size:14px;
+  line-height:2;
+}
+
+.footer-dva .footer-center p a{
+  color:  #5383d3;
+  text-decoration: none;;
+}
+
+/* Footer Right */
+
+.footer-dva .footer-right{
+  width: 20%;
+}
+
+.footer-dva .footer-destro-about{
+  line-height: 20px;
+  color:  #92999f;
+  font-size: 13px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.footer-dva .footer-destro-about span{
+  display: block;
+  color:  #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-dva .footer-icons{
+  margin-top: 25px;
+}
+
+.footer-dva .footer-icons a{
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color:  #33383b;
+  border-radius: 2px;
+
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 880px) {
+
+  .footer-dva{
+    font: bold 14px sans-serif;
+  }
+
+  .footer-dva .footer-left,
+  .footer-dva .footer-center,
+  .footer-dva .footer-right{
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .footer-dva .footer-center i{
+    margin-left: 0;
+  }
+
+}
+
+</style>
+
+<footer class="footer-dva">
+
+      <div class="footer-left">
+
+        <h3>
+          <a href="https://dvalesotho.com/">
+              <img alt="Destro Virtual Academy
+              " src="${static.url('images/footer.png')}">
+            </a>
+        </h3>
+
+        <p class="footer-links">
+          <a href="www.dvalesotho.com">Home</a>
+          ·
+          <a href="/courses">Courses</a>
+          ·
+          <a href="/about">About</a>
+          ·
+          <a href="/faq">Faq</a>
+        </p>
+
+        <p class="footer-destro-name">Powered by Peiso Media Group &copy; 2019</p>
+      </div>
+
+      <div class="footer-center">
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>Lefikeng Theme Park</span> Thaba-Bosiu, Maseru</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>+266 62 141 998</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:support@dvalesotho.com">support@dvalesotho.com</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+        <p class="footer-destro-about">
+          <span>Peiso Media Group</span>
+          A mobile-first, technology-obsessed team of creative innovators focused on cutting edge technology that will turn your next project into reality. 
+          The team behind Destro Virtual Academy.
+        </p>
+
+        <div class="footer-icons">
+
+          <a href="www.facebook.com/dvalesotho"><i class="fa fa-facebook"></i></a>
+          <a href="www.twitter.com/dvalesotho"><i class="fa fa-twitter"></i></a>
+          <a href="www.instagram.com/dvalesotho"><i class="fa fa-instagram"></i></a>
+
+        </div>
+
+      </div>
+    </footer>
+</div>
+% if include_dependencies:
+  <%static:js group='base_vendor'/>
+  <%static:css group='style-vendor'/>
+  <%include file="widgets/segment-io.html" />
+  <%include file="widgets/segment-io-footer.html" />
+% endif
+% if footer_css_urls:
+  % for url in footer_css_urls:
+    <link rel="stylesheet" type="text/css" href="${url}"></link>
+  % endfor
+% endif
